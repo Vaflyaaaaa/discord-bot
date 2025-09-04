@@ -1,0 +1,7 @@
+disnake
+loguru
+spotipy
+yt_dlp
+dotenv
+PyNaCl
+aiofiles

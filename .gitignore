@@ -1,0 +1,6 @@
+__pycache__
+.cache
+cogs/__pycache__
+data/*
+log/*
+cfg.py
