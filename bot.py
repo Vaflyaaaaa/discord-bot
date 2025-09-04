@@ -69,4 +69,4 @@ async def on_message(message):
 
 reset_ping.start()
 
-bot.run(config.TOKEN_TEST_BOT)
+bot.run(config.TOKEN_BOT)
