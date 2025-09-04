@@ -232,31 +232,7 @@ class Debug(commands.Cog):
         embed.set_footer(text=f"{config.BOT_VERSION}")
         await ctx.send(embed=embed)
 
-
-    @commands.command(name="приказ")
-    async def приказ(self, ctx, num: int, channel_id: int):
-        server_id = str(ctx.guild.id)
-        user_level = self.user_levels.get(server_id, {}).get(str(ctx.author.id), 0)
-
-        if user_level < 2:
-            await ctx.send("У вас нет прав для выполнения этой команды.")
-            return
-
-        if num != 66:
-            await ctx.send("Неверный номер приказа. Используйте 66.")
-            return
-        
-        channel = ctx.guild.get_channel(channel_id)
-        if channel and isinstance(channel, disnake.VoiceChannel):
-            for member in channel.members:
-                try:
-                    await member.move_to(None, reason="Команда 66: отключение от голосового")
-                except Exception as e:
-                    await ctx.send(f"Не удалось кикнуть {member.name}: {e}")
-        else:
-            await ctx.send("Указанный канал не найден или не является голосовым.")
-
-
+    
     @commands.command(name="debug")
     @commands.is_owner()
     async def debug(self, ctx, debug_type: str):
